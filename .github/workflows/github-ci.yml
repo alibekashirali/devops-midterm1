@@ -36,10 +36,9 @@ jobs:
           echo test, and deploy your project.
   deploy:
     name: Deploy
-    needs: build
+    if: github.ref == 'refs/heads/main'
     environment: production
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/production'
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
